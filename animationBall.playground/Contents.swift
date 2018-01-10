@@ -9,7 +9,11 @@ v.backgroundColor = .red
 PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = v
 
-let b = BallView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 40)), using: .green, with: 3)
+let b = BallView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 40)), using: .green, with: 6)
 b.backgroundColor = .white
 v.addSubview(b)
 b.startAnimating()
+
+DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+    b.stopAnimating()
+}
